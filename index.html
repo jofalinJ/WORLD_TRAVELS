@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070b12" />
+  <meta name="description"
+    content="WORLD TRAVELS — Journeys Beyond Reality. A cinematic Smart Travel Planner through fictional movie worlds." />
+  <title>WORLD TRAVELS — Journeys Beyond Reality</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div id="particles" class="particles" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="World Travels home">
+      <span class="brand-mark">WT</span>
+      <span>
+        <strong>WORLD TRAVELS</strong>
+        <small>JOURNEYS BEYOND REALITY</small>
+      </span>
+    </a>
+    <div class="live-state"><span class="live-dot"></span><span id="liveWorld">PANDORA</span><span
+        class="live-caption">LIVE WORLD</span></div>
+    <button class="ghost-btn" id="passportBtn" type="button">WORLD PASSPORT <span>⌁</span></button>
+  </header>
+
+  <div class="ticker" aria-label="World ticker">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+
+  <main id="top">
+    <section class="hero" id="hero">
+      <div class="hero-media" id="heroMedia">
+        <img id="heroImage" src="" alt="Selected fictional world scenery" />
+        <div class="hero-vignette"></div>
+        <div class="hero-scanline"></div>
+        <div class="hero-stars" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-content container">
+        <div class="eyebrow"><span>EXPEDITION 08</span><i></i><span id="heroUniverse">AVATAR</span></div>
+        <h1 id="heroTitle">PANDORA</h1>
+        <p class="hero-kicker" id="heroTagline">Where the mountains float and the forest remembers.</p>
+        <p class="hero-copy" id="heroDescription"></p>
+        <div class="hero-actions">
+          <button class="primary-btn" id="exploreBtn" type="button">EXPLORE WORLD <span>↗</span></button>
+          <button class="secondary-btn" id="previewBtn" type="button">OPEN CINEMATIC PREVIEW</button>
+        </div>
+        <div class="hero-meta">
+          <div><small>WORLD CODE</small><strong id="worldCode">PDR-01</strong></div>
+          <div><small>ACCESS</small><strong id="accessLevel">ECO-PASS</strong></div>
+          <div><small>ATMOSPHERE</small><strong id="atmosphere">BIOLUMINESCENT</strong></div>
+        </div>
+      </div>
+
+      <div class="hero-dial" aria-hidden="true">
+        <span>01</span>
+        <div></div><span>06</span>
+      </div>
+    </section>
+
+    <section class="world-section container" id="worlds">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">01 / CHOOSE YOUR REALITY</span>
+          <h2>Six worlds.<br /><em>Infinite journeys.</em></h2>
+        </div>
+        <p>Choose a universe to shift the entire interface — scenery, colors, story, currency and journey mood.</p>
+      </div>
+      <div class="world-grid" id="worldGrid"></div>
+    </section>
+
+    <section class="destination-section container" id="destinationPanel">
+      <div class="section-heading compact">
+        <div>
+          <span class="section-label">02 / ACTIVE SCENERY</span>
+          <h2 id="sceneHeading">Pandora Field Notes</h2>
+        </div>
+        <p id="sceneSubheading">Every sub-scenery is linked to its own recognizable film-world image.</p>
+      </div>
+
+      <div class="scene-layout">
+        <div class="scene-visual glass-panel">
+          <div class="scene-image-wrap" id="sceneImageWrap">
+            <img id="sceneImage" src="" alt="Selected scenery" />
+            <div class="scene-caption">
+              <span id="sceneNumber">SCENE 01</span>
+              <strong id="sceneName">Floating Mountains</strong>
+            </div>
+          </div>
+          <div class="scene-controls" id="sceneControls"></div>
+        </div>
+
+        <aside class="world-facts glass-panel">
+          <div class="fact-top"><span class="world-badge" id="factBadge">PANDORA</span><span id="factMood">LUMINOUS •
+              WILD</span></div>
+          <h3 id="factTitle">Floating Mountains</h3>
+          <p id="factText"></p>
+          <div class="fact-list" id="factList"></div>
+          <div class="quote-card" id="worldQuote"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="planner container" id="planner">
+      <div class="section-heading compact">
+        <div>
+          <span class="section-label">03 / BUILD YOUR JOURNEY</span>
+          <h2>Turn a world into a plan.</h2>
+        </div>
+        <p>Your inputs drive the countdown, duration, fictional fare and ticket preview.</p>
+      </div>
+
+      <div class="planner-grid">
+        <form class="planner-form glass-panel" id="tripForm" novalidate>
+          <div class="form-row two">
+            <label>TRAVELLER NAME
+              <input id="travellerName" type="text" minlength="2" placeholder="e.g. Jofalin" autocomplete="name"
+                required />
+              <span class="error" data-error-for="travellerName"></span>
+            </label>
+            <label>TRAVELLERS
+              <input id="travellerCount" type="number" min="1" max="12" value="2" required />
+              <span class="error" data-error-for="travellerCount"></span>
+            </label>
+          </div>
+
+          <div class="form-row two">
+            <label>DEPARTURE DATE
+              <input id="departureDate" type="date" required />
+              <span class="error" data-error-for="departureDate"></span>
+            </label>
+            <label>RETURN DATE
+              <input id="returnDate" type="date" required />
+              <span class="error" data-error-for="returnDate"></span>
+            </label>
+          </div>
+
+          <label>JOURNEY TYPE
+            <select id="journeyType" required>
+              <option value="cinematic">Cinematic Expedition</option>
+              <option value="adventure">Wild Adventure</option>
+              <option value="royal">Royal / Grand Tour</option>
+              <option value="mystic">Mystic Discovery</option>
+              <option value="survival">Extreme Survival</option>
+            </select>
+          </label>
+
+          <div class="cost-preview">
+            <div><span>BASE FARE</span><strong id="baseFare">—</strong></div>
+            <div><span>WORLD FEE</span><strong id="worldFee">—</strong></div>
+            <div><span>EST. TOTAL</span><strong id="estimatedCost">—</strong></div>
+          </div>
+
+          <button class="primary-btn full" type="submit">GENERATE JOURNEY TICKET <span>✦</span></button>
+          <p class="form-note">Fictional pricing only — this planner is an interactive Experiment 8 concept.</p>
+        </form>
+
+        <div class="ticket glass-panel" id="ticket">
+          <div class="ticket-grid-lines"></div>
+          <div class="ticket-header"><span>WORLD TRAVELS / FIELD PASS</span><span id="ticketStatus">DRAFT</span></div>
+          <div class="ticket-main">
+            <div>
+              <small>PASSENGER</small>
+              <strong id="ticketName">YOUR NAME</strong>
+            </div>
+            <div>
+              <small>WORLD</small>
+              <strong id="ticketWorld">PANDORA</strong>
+            </div>
+            <div>
+              <small>SCENERY</small>
+              <strong id="ticketScene">FLOATING MOUNTAINS</strong>
+            </div>
+            <div>
+              <small>WINDOW</small>
+              <strong id="ticketWindow">SELECT DATES</strong>
+            </div>
+          </div>
+          <div class="ticket-strip">
+            <span id="countdown">—</span>
+            <span id="ticketDuration">—</span>
+            <span id="ticketCost">—</span>
+          </div>
+          <div class="ticket-footer">
+            <div class="qr" id="qrCode" aria-label="Decorative ticket code"></div>
+            <div><small>JOURNEY TYPE</small><strong id="ticketType">CINEMATIC EXPEDITION</strong></div>
+            <div class="ticket-code"><small>IDENTIFIER</small><strong id="ticketCode">WT-000000</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="passport-section container glass-panel" id="passportPanel">
+      <div>
+        <span class="section-label">04 / WORLD PASSPORT</span>
+        <h2>Visited realities</h2>
+        <p>Save worlds locally in your browser as you explore them. The passport updates whenever you choose a new
+          universe.</p>
+      </div>
+      <div class="passport-list" id="passportList"></div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <span>WORLD TRAVELS — JOURNEYS BEYOND REALITY</span>
+    <span>Experiment 8 • HTML + CSS + JavaScript</span>
+  </footer>
+
+  <div class="modal" id="previewModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close preview">×</button>
+      <img id="modalImage" src="" alt="Cinematic scenery preview" />
+      <div class="modal-info">
+        <span id="modalWorld">WORLD</span>
+        <h3 id="modalTitle">SCENERY</h3>
+        <p id="modalText"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
